@@ -12,7 +12,7 @@ class PokemonApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(), // mulai dari login
+      home: LoginScreen(),
     );
   }
 }
@@ -78,27 +78,45 @@ class _LobbyScreenState extends State<LobbyScreen> {
 
             const SizedBox(height: 30),
 
-            // POKEMON
-            GestureDetector(
+            // 🔥 SLICING DI SINI
+            PokemonCard(
+              p: p,
               onTap: changePokemon,
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: p["color"],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Column(
-                  children: [
-                    Icon(p["icon"], size: 80, color: Colors.white),
-                    const SizedBox(height: 10),
-                    Text(p["name"],
-                        style: const TextStyle(
-                            color: Colors.white, fontSize: 20)),
-                    Text(p["type"],
-                        style: const TextStyle(color: Colors.white70)),
-                  ],
-                ),
-              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PokemonCard extends StatelessWidget {
+  final Map<String, dynamic> p;
+  final VoidCallback onTap;
+
+  const PokemonCard({required this.p, required this.onTap, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: p["color"],
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          children: [
+            Icon(p["icon"], size: 80, color: Colors.white),
+            const SizedBox(height: 10),
+            Text(
+              p["name"],
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            Text(
+              p["type"],
+              style: const TextStyle(color: Colors.white70),
             ),
           ],
         ),
