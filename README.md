@@ -1,3 +1,18 @@
+
+## Deskripsi
+Pada tugas ini saya membuat slicing 2 screen yaitu halaman login dan main (home).
+Saya memecah komponen UI menjadi beberapa widget agar lebih modular dan reusable.
+
+## Komponen Slicing
+- InputField (untuk username & password)
+- LoginButton
+- PokemonCard
+
+## login
+user: rafail
+pw: 123
+
+
 # flutter_application_1
 
 A new Flutter project.
